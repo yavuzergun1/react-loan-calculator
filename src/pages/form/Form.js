@@ -13,11 +13,9 @@ import validationSchema from "./Validations";
 import "./form.scss";
 import Panel from "../../components/modal/Modal";
 import { useState } from "react";
-function Form() {
-   const [isModalOpen, setIsModalOpen] = useState(false);
 
- 
-  
+function Form() {
+  const [modalOpen, setModalOpen] = useState(false)
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
     initialValues: {
       krediTutari: "",
@@ -28,7 +26,7 @@ function Form() {
       kkdf: "",
     },
     onSubmit: (values) => {
-      setIsModalOpen(true);
+      setModalOpen(true)
       console.log(values);
     },
     validationSchema,
@@ -153,7 +151,7 @@ function Form() {
                   value={values.kkdf}
                 />
               </div>
-              <Panel isModalOpen={isModalOpen} />
+              <Panel modalOpen={modalOpen} setModalOpen={setModalOpen} />
               <Button type="onSubmit" variant="contained">Hesapla</Button>
             </Box>
           </Box>

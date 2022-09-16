@@ -1,20 +1,27 @@
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from "swiper";
 import "./swiper.scss";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
+import "swiper/css/autoplay";
 export default () => {
+  SwiperCore.use([Autoplay]);
   return (
     <Swiper
       // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
       spaceBetween={50}
       slidesPerView={3}
       navigation
+      autoplay={{
+        disableOnInteraction: false,
+        delay: 3000,
+        pauseOnMouseEnter: true,
+      }}
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       onSwiper={(swiper) => console.log(swiper)}
@@ -26,7 +33,7 @@ export default () => {
         450: { slidesPerView: 1, spaceBetween: 5 },
       }}
     >
-      <SwiperSlide>
+      <SwiperSlide data-swiper-autoplay="2000">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREVwRYPT8xJOdxUoO6UiWDw0bL3eHOPEX7mA&usqp=CAU"
           alt=""

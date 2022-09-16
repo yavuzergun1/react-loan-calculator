@@ -11,8 +11,13 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useFormik } from "formik";
 import validationSchema from "./Validations";
 import "./form.scss";
-
+import Panel from "../../components/modal/Modal";
+import { useState } from "react";
 function Form() {
+   const [isModalOpen, setIsModalOpen] = useState(false);
+
+ 
+  
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
     initialValues: {
       krediTutari: "",
@@ -23,13 +28,14 @@ function Form() {
       kkdf: "",
     },
     onSubmit: (values) => {
+      setIsModalOpen(true);
       console.log(values);
     },
     validationSchema,
   });
 
   return (
-    <div>
+    <div className="form-body">
       <div className="forms-container">
         <FormControl>
           <Box
@@ -147,6 +153,7 @@ function Form() {
                   value={values.kkdf}
                 />
               </div>
+              <Panel isModalOpen={isModalOpen} />
               <Button type="onSubmit" variant="contained">Hesapla</Button>
             </Box>
           </Box>

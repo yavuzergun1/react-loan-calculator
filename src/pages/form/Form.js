@@ -6,8 +6,11 @@ import FormLabel from "@mui/material/FormLabel";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useFormik } from "formik";
 import validationSchema from "./Validations";
+import "./form.scss";
 
 function Form() {
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
@@ -33,13 +36,13 @@ function Form() {
             component="form"
             onSubmit={handleSubmit}
             sx={{
-              "& > :not(style)": { m: 2, width: "28ch" },
+              "& > :not(style)": { m: 2, width: "100%" },
             }}
             autoComplete="off"
           >
             <Box
               sx={{
-                "& > :not(style)": { m: 2, width: "28ch" },
+                "& > :not(style)": { m: 2, width: "100%" },
               }}
             >
               <FormLabel id="demo-row-radio-buttons-group-label">
@@ -75,65 +78,76 @@ function Form() {
                   {touched.odemeTipi && errors.odemeTipi}
                 </div>
               </RadioGroup>
-              <TextField
-                id="outlined-basic"
-                label="Kredi Tutarı"
-                name="krediTutari"
-                variant="outlined"
-                error={touched.krediTutari && errors.krediTutari ? true : false}
-                helperText={errors.krediTutari}
-                type="number"
-                onChange={handleChange}
-                value={values.krediTutari}
-              />
-              <TextField
-                id="outlined-basic"
-                label="Taksit Sayısı"
-                name="taksitSayisi"
-                variant="outlined"
-                type="number"
-                value={values.taksitSayisi}
-                InputProps={{ inputProps: values.odemeTipi == "aylik" ?  { max: 24 } : (values.odemeTipi == "yillik" ?  { max: 2 } :  { max: 104 }) }}
-                error={
-                  touched.taksitSayisi && errors.taksitSayisi ? true : false
-                }
-                helperText={errors.taksitSayisi}
-                onChange={handleChange}
-              />
-              <TextField
-                id="outlined-basic"
-                label="Faiz Oranı"
-                name="faizOrani"
-                variant="outlined"
-                error={touched.faizOrani && errors.faizOrani ? true : false}
-                helperText={errors.faizOrani}
-                type="number"
-                onChange={handleChange}
-                value={values.faizOrani}
-              />
-              <TextField
-                id="outlined-basic"
-                label="Bsmv Vergi Oranı"
-                name="bsmv"
-                variant="outlined"
-                error={touched.bsmv && errors.bsmv ? true : false}
-                helperText={errors.bsmv}
-                type="number"
-                onChange={handleChange}
-                value={values.bsmv}
-              />
-              <TextField
-                id="outlined-basic"
-                label="Kkdf Vergi Oranı"
-                name="kkdf"
-                variant="outlined"
-                error={touched.kkdf && errors.kkdf ? true : false}
-                helperText={errors.kkdf}
-                type="number"
-                onChange={handleChange}
-                value={values.kkdf}
-              />
-              <button type="onSubmit">Submit</button>
+              <div className="input-container">
+                <TextField
+                  id="outlined-basic"
+                  label="Kredi Tutarı"
+                  name="krediTutari"
+                  variant="outlined"
+                  error={
+                    touched.krediTutari && errors.krediTutari ? true : false
+                  }
+                  helperText={errors.krediTutari}
+                  type="number"
+                  onChange={handleChange}
+                  value={values.krediTutari}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Taksit Sayısı"
+                  name="taksitSayisi"
+                  variant="outlined"
+                  type="number"
+                  value={values.taksitSayisi}
+                  InputProps={{
+                    inputProps:
+                      values.odemeTipi == "aylik"
+                        ? { max: 24 }
+                        : values.odemeTipi == "yillik"
+                        ? { max: 2 }
+                        : { max: 104 },
+                  }}
+                  error={
+                    touched.taksitSayisi && errors.taksitSayisi ? true : false
+                  }
+                  helperText={errors.taksitSayisi}
+                  onChange={handleChange}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Faiz Oranı"
+                  name="faizOrani"
+                  variant="outlined"
+                  error={touched.faizOrani && errors.faizOrani ? true : false}
+                  helperText={errors.faizOrani}
+                  type="number"
+                  onChange={handleChange}
+                  value={values.faizOrani}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Bsmv Vergi Oranı"
+                  name="bsmv"
+                  variant="outlined"
+                  error={touched.bsmv && errors.bsmv ? true : false}
+                  helperText={errors.bsmv}
+                  type="number"
+                  onChange={handleChange}
+                  value={values.bsmv}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Kkdf Vergi Oranı"
+                  name="kkdf"
+                  variant="outlined"
+                  error={touched.kkdf && errors.kkdf ? true : false}
+                  helperText={errors.kkdf}
+                  type="number"
+                  onChange={handleChange}
+                  value={values.kkdf}
+                />
+              </div>
+              <Button type="onSubmit" variant="contained">Hesapla</Button>
             </Box>
           </Box>
         </FormControl>

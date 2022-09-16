@@ -12,7 +12,6 @@ const Validations = yup.object().shape({
   taksitSayisi: yup
     .number()
     .min(1, "Lütfen Geçerli Bir Değer Giriniz")
-    .max(12, "En yüksek taksit tutarı 12'dir")
     .required("Bu Alanı Boş Bırakmayınız"),
   faizOrani: yup.number().required("Bu Alanı Boş Bırakmayınız"),
   bsmv: yup.number().required("Bu Alanı Boş Bırakmayınız"),

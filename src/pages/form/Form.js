@@ -7,16 +7,21 @@ import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useFormik } from "formik";
 import validationSchema from "./Validations";
 import "./form.scss";
 import Panel from "../../components/modal/Modal";
 import { useState } from "react";
+import AylikFaizHesabi from "../../components/aylikFaizHesabi/AylikFaizHesabi";
+import { UseCalculate } from "../../context/CalculateContext";
 
 function Form() {
-  const [modalOpen, setModalOpen] = useState(false)
+  const { setPrincipalAmount, setInstallmentCount } = UseCalculate();
+  // Submit butonuna tıklandığında Modal'ın açılmasını sağlıyor
+  const [modalOpen, setModalOpen] = useState(false);
+  // Formlar Formik ile oluşturuldu
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
+    // Başlangıç değerleri boş olarak oluşturuldu
     initialValues: {
       krediTutari: "",
       taksitSayisi: "",
@@ -26,15 +31,19 @@ function Form() {
       kkdf: "",
     },
     onSubmit: (values) => {
-      setModalOpen(true)
+      setModalOpen(true);
+      setPrincipalAmount(values.krediTutari);
+      setInstallmentCount(values.taksitSayisi);
       console.log(values);
     },
+    // form validasyonları yup ile oluşturuldu
     validationSchema,
   });
 
   return (
     <div className="form-body">
       <div className="forms-container">
+        {/* Formlar için Material UI kullanıldı */}
         <FormControl>
           <Box
             component="form"
@@ -91,7 +100,7 @@ function Form() {
                   error={
                     touched.krediTutari && errors.krediTutari ? true : false
                   }
-                  helperText={errors.krediTutari}
+                  helperText={touched.krediTutari && errors.krediTutari}
                   type="number"
                   onChange={handleChange}
                   value={values.krediTutari}
@@ -114,7 +123,7 @@ function Form() {
                   error={
                     touched.taksitSayisi && errors.taksitSayisi ? true : false
                   }
-                  helperText={errors.taksitSayisi}
+                  helperText={touched.taksitSayisi && errors.taksitSayisi}
                   onChange={handleChange}
                 />
                 <TextField
@@ -123,7 +132,7 @@ function Form() {
                   name="faizOrani"
                   variant="outlined"
                   error={touched.faizOrani && errors.faizOrani ? true : false}
-                  helperText={errors.faizOrani}
+                  helperText={touched.faizOrani && errors.faizOrani}
                   type="number"
                   onChange={handleChange}
                   value={values.faizOrani}
@@ -134,7 +143,7 @@ function Form() {
                   name="bsmv"
                   variant="outlined"
                   error={touched.bsmv && errors.bsmv ? true : false}
-                  helperText={errors.bsmv}
+                  helperText={touched.bsmv && errors.bsmv}
                   type="number"
                   onChange={handleChange}
                   value={values.bsmv}
@@ -145,18 +154,22 @@ function Form() {
                   name="kkdf"
                   variant="outlined"
                   error={touched.kkdf && errors.kkdf ? true : false}
-                  helperText={errors.kkdf}
+                  helperText={touched.kkdf && errors.kkdf}
                   type="number"
                   onChange={handleChange}
                   value={values.kkdf}
                 />
               </div>
+              {/* onSubmit çalıştığında Panel componentine modalOpen değerini gönderir */}
               <Panel modalOpen={modalOpen} setModalOpen={setModalOpen} />
-              <Button type="onSubmit" variant="contained">Hesapla</Button>
+              <Button type="onSubmit" variant="contained">
+                Hesapla
+              </Button>
             </Box>
           </Box>
         </FormControl>
       </div>
+      <AylikFaizHesabi />
     </div>
   );
 }

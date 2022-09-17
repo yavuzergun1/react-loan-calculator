@@ -13,9 +13,18 @@ const Validations = yup.object().shape({
     .number()
     .min(1, "Lütfen Geçerli Bir Değer Giriniz")
     .required("Bu Alanı Boş Bırakmayınız"),
-  faizOrani: yup.number().required("Bu Alanı Boş Bırakmayınız"),
-  bsmv: yup.number().required("Bu Alanı Boş Bırakmayınız"),
-  kkdf: yup.number().required("Bu Alanı Boş Bırakmayınız"),
+  faizOrani: yup
+    .number()
+    .min(0, "faiz en düşük 0 olabilir")
+    .required("Bu Alanı Boş Bırakmayınız"),
+  bsmv: yup
+    .number()
+    .min(0, "faiz en düşük 0 olabilir")
+    .required("Bu Alanı Boş Bırakmayınız"),
+  kkdf: yup
+    .number()
+    .min(0, "faiz en düşük 0 olabilir")
+    .required("Bu Alanı Boş Bırakmayınız"),
 });
 
 export default Validations;

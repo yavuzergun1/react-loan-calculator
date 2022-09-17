@@ -1,28 +1,19 @@
 import { Button, Modal } from "antd";
 import React, { useState } from "react";
-import 'antd/dist/antd.css'
+import "antd/dist/antd.css";
+import "./Modal.scss";
 
 const Panel = ({ modalOpen, setModalOpen }) => {
-    
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-const ShowModal = () => {
-    setIsModalOpen(true);
-  };
-
   const handleOk = () => {
     setModalOpen(false);
   };
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    setModalOpen(false);
   };
 
   return (
     <>
-      <Button type="primary" onClick={ShowModal}>
-        Hesapla
-      </Button>
       <Modal
         title="Basic Modal"
         open={modalOpen}

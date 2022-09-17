@@ -2,9 +2,10 @@ import React from "react";
 import Swiper from "../../components/swiper/Swiper";
 import { Link } from "react-router-dom";
 import "./Home.scss";
+
 function Home() {
   return (
-    <div>
+    <div className="home-body">
       <header>
         <Swiper />
       </header>

@@ -1,11 +1,1 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>diagram.html</title>
-<meta charset="utf-8"/>
-</head>
-<body>
-<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2022-09-18T23:53:52.406Z\&quot; agent=\&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36\&quot; etag=\&quot;Er5X9rZzyiGiPwOnqE3q\&quot; version=\&quot;20.0.4\&quot; type=\&quot;device\&quot;&gt;&lt;diagram id=\&quot;wyCUgqMAPSE_kx4mz76z\&quot; name=\&quot;Page-1\&quot;&gt;1Vrfk5owEP5rnOk99AYIID5S9XrX0dNRr7V96eQkVTpIbIyn9q9vkCAhgOIP5PqiZNmEZPN9u5uFGmjON58JXMy62EFeTVOcTQ20appmmRb7DQTbUKAbSiiYEtcJRWosGLp/ERdGaivXQcuEIsXYo+4iKZxg30cTmpBBQvA6qfYLe8mnLuAUpQTDCfTS0m+uQ2d8WVo9lj8idzqLnqyajfDOHEbKfCXLGXTwWhCBdg00CcY0vJpvmsgLbBfZJez3kHN3PzGCfFqkA30c/3lYvf0wfg40Y74Z2isVf9T53Og2WjBy2Pp508c++/tE8Mp3UDCMwlqY0BmeYh96HYwXTKgy4W9E6ZbvHlxRzEQzOvf4XbRx6Tjofm/w1nfhTmvDR941tryxN1egFs4ymFru4rloiVdkgg6sWN2bnkEW4TmiZMv6EeRB6r4lx4ccPNO93r5rH7vsyZrCca7V+S5zmKu6khyCQjJFlPeKd8kmBG4FtUWgsDzhOclNZxfhiFFLWGMs2gHjBJBwa7xBb8XtU9NMj9n90yu7mAYXdr9//2W4F5NI/mHQexm1B3fpO5GEzeg1lklgTCJvPXMpGi7gbn/XzN0kUcZniQhFm8MwSW9/ZF41ad6Iu+uY+pHFlZlAe1PJB4ywN6eb3rgtPwV2xlwtwE9mXrIdiw1hiKAZj7FrRYNckdeAB4cdzw7omeXwH0i8rF/K/wRsrkDi+v/h6fdIUu51tS6i6aNyrwBwBFC7Vh8Rl5kLkepQZpWCMiB5f80qhrJrYQikAsFjr9uu3msrOcG3Mrdtpgw1/PbUbw92MbJya2V7KsFYVoatjLJs1agsxFWTgFoFXYiqZG/jpZHKSO4/kDf2WpmqRMrIdz3k6KvyvI7pg4P6JWXC2k3BqgpgVc6KoXVDDKHKkehZBcrLOY/V5UhZDsiBJTlT4zBodT1zWnnq9ah6kqleEsRBZRB/5/5YLwWpuoRUICclJed0VipVeegNutmH+TlkSbULgzFfnu6qz2Tk07pRdd63r/Xd6pSlGeeFiCvyp6w8RcoftIIn6qv5QSVFjK9256llj556z9Vn8XL2AzKgr9wyjdduGzdOKTAI+ZApVxSOVagyCwqlUSl6w3EsFuWBozDnLtrqaJoCNZp2p/nSsUdtJm72nkft8ahyiphSZM2KDiCDIo2yKKLqKbt1ey27kxFpoU9baOlO/eqjrGEWcDVmhh3l4tT1XM1tT2FnuhpgyL7GOqt6WZqzKZr4Vuxs0gnqyB6/Izdj6MfdTFYSWp6baaQsluaL79jB23HWmnhwuXQnAdIYFGhaLJgraducosNpr4Ayax1H3j1dkQWFT385FX1hl40D6dalhf+GlAzL9Yxwnalk+GgB4v29p9Ju9EmCkBNqJxXJbuqktaIZ4cXVicsicjoj7Nvfu+3nUeCo49ywalctfz3RyPDVWS8/zigYsGb8bU9IjvgDKdD+Bw==&lt;/diagram&gt;&lt;/mxfile&gt;&quot;,&quot;toolbar&quot;:&quot;pages zoom layers lightbox&quot;,&quot;page&quot;:0}"></div>
-<script type="text/javascript" src="https://app.diagrams.net/js/viewer-static.min.js"></script>
-</body>
-</html>
+<img src="./diagram.png" alt="">

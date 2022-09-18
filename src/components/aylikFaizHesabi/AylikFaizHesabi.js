@@ -27,14 +27,16 @@ function AylikFaizHesabi() {
         creditAmount *
         ((totalInterest * (1 + totalInterest) ** installmentCount) /
           ((1 + totalInterest) ** installmentCount - 1));
+     const monthlykkdf = remainingPrincipal * kkdfRate * (30/30)
+     const monthlybsmv = remainingPrincipal * bsmvRate * (30/30)
       const monthlyInt =
         remainingPrincipal * interest * (30 / 30); /* aylık faiz tutarı */
       const weeklyInt =
         remainingPrincipal * interest * (7 / 30); /* haftalık faiz tutarı */
       const yearlyInt =
         remainingPrincipal * interest * (365 / 30); /* yıllık faiz tutarı */
-      const payedPrincipal =
-        installmentAmount -
+      const paidPrincipal =
+        installmentAmount /* eğer ödeme planı haftalık girilmişse weeklyInt değerini kullan, aylık girmişse monthlyInt değerini kullan. Yıllık değeri girmişse yearlyInt değerini kullan */ -
         (paymentType == "haftalik"
           ? weeklyInt
           : paymentType == "aylik"
@@ -42,17 +44,24 @@ function AylikFaizHesabi() {
           : yearlyInt) -
         kkdf -
         bsmv;
-      remainingPrincipal = remainingPrincipal - payedPrincipal;
+      remainingPrincipal = remainingPrincipal - paidPrincipal;
       // Yukarıdaki değişkenler daha önce oluşturduğumuz payments dizisi içine alınıyor
-      payments.push(installmentAmount, remainingPrincipal, payedPrincipal);
-
+      payments.push(
+        installmentAmount.toFixed(2),
+        paidPrincipal.toFixed(2),
+        remainingPrincipal.toFixed(2),
+      );
+      /* eğer ödeme planı haftalık girilmişse weeklyInt değerini gir, aylık girmişse monthlyInt değerini gir. Yıllık değeri girmişse yearlyInt değerini gir */
       if (paymentType == "haftalik") {
-        payments.push(weeklyInt);
+        payments.push(weeklyInt.toFixed(2));
       } else if (paymentType == "aylik") {
-        payments.push(monthlyInt);
+        payments.push(monthlyInt.toFixed(2));
       } else {
-        payments.push(yearlyInt);
+        payments.push(yearlyInt.toFixed(2));
       }
+      payments.push(
+        monthlybsmv.toFixed(2), monthlykkdf.toFixed(2), 
+      )
     }
   };
   count();

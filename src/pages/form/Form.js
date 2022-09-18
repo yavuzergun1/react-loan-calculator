@@ -16,7 +16,14 @@ import AylikFaizHesabi from "../../components/aylikFaizHesabi/AylikFaizHesabi";
 import { UseCalculate } from "../../context/CalculateContext";
 
 function Form() {
-  const { setPrincipalAmount, setInstallmentCount } = UseCalculate();
+  const {
+    setCreditAmount,
+    setInstallmentCount,
+    setPaymentType,
+    setInterest,
+    setBsmv,
+    setKkdf,
+  } = UseCalculate();
   // Submit butonuna tıklandığında Modal'ın açılmasını sağlıyor
   const [modalOpen, setModalOpen] = useState(false);
   // Formlar Formik ile oluşturuldu
@@ -32,8 +39,12 @@ function Form() {
     },
     onSubmit: (values) => {
       setModalOpen(true);
-      setPrincipalAmount(values.krediTutari);
+      setCreditAmount(values.krediTutari);
       setInstallmentCount(values.taksitSayisi);
+      setPaymentType(values.odemeTipi);
+      setInterest(values.faizOrani / 100);
+      setBsmv(values.bsmv);
+      setKkdf(values.kkdf);
       console.log(values);
     },
     // form validasyonları yup ile oluşturuldu

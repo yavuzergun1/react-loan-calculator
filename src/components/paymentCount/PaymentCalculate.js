@@ -1,18 +1,18 @@
 import React from "react";
 import { UseCalculate } from "../../context/CalculateContext";
 import { useEffect } from "react";
+import { UseTax } from "../../context/TaxContext";
 
-function AylikFaizHesabi() {
+function PaymentCalculate() {
   const {
     creditAmount /* Girilen kredi tutarı */,
     installmentCount /* Girilen taksit sayısı */,
     paymentType /* Girilen ödeme tipi */,
     interest /* Girilen faiz oranı */,
-    bsmv /* girilen bsmv miktarı  */,
-    kkdf /*  girilen kkdf miktarı*/,
     setPaymentPlan,
   } = UseCalculate();
-
+  const { bsmv /* girilen bsmv miktarı  */, kkdf /*  girilen kkdf miktarı*/ } =
+    UseTax();
   const kkdfRate = kkdf / 100000; /* kkdf oranı */
   const bsmvRate = bsmv / 100000; /* bsmv oranı */
   const totalInterest = interest + kkdfRate + bsmvRate; /* toplam faiz oranı */
@@ -27,8 +27,8 @@ function AylikFaizHesabi() {
         creditAmount *
         ((totalInterest * (1 + totalInterest) ** installmentCount) /
           ((1 + totalInterest) ** installmentCount - 1));
-     const monthlykkdf = remainingPrincipal * kkdfRate * (30/30)
-     const monthlybsmv = remainingPrincipal * bsmvRate * (30/30)
+      const monthlykkdf = remainingPrincipal * kkdfRate * (30 / 30);
+      const monthlybsmv = remainingPrincipal * bsmvRate * (30 / 30);
       const monthlyInt =
         remainingPrincipal * interest * (30 / 30); /* aylık faiz tutarı */
       const weeklyInt =
@@ -49,7 +49,7 @@ function AylikFaizHesabi() {
       payments.push(
         installmentAmount.toFixed(2),
         paidPrincipal.toFixed(2),
-        remainingPrincipal.toFixed(2),
+        remainingPrincipal.toFixed(2)
       );
       /* eğer ödeme planı haftalık girilmişse weeklyInt değerini gir, aylık girmişse monthlyInt değerini gir. Yıllık değeri girmişse yearlyInt değerini gir */
       if (paymentType == "haftalik") {
@@ -59,9 +59,7 @@ function AylikFaizHesabi() {
       } else {
         payments.push(yearlyInt.toFixed(2));
       }
-      payments.push(
-        monthlybsmv.toFixed(2), monthlykkdf.toFixed(2), 
-      )
+      payments.push(monthlybsmv.toFixed(2), monthlykkdf.toFixed(2));
     }
   };
   count();
@@ -77,4 +75,4 @@ function AylikFaizHesabi() {
   );
 }
 
-export default AylikFaizHesabi;
+export default PaymentCalculate;

@@ -12,18 +12,14 @@ import validationSchema from "./Validations";
 import "./form.scss";
 import Panel from "../../components/modal/Modal";
 import { useState } from "react";
-import AylikFaizHesabi from "../../components/aylikFaizHesabi/AylikFaizHesabi";
+import AylikFaizHesabi from "../../components/paymentCount/PaymentCalculate";
 import { UseCalculate } from "../../context/CalculateContext";
+import { UseTax } from "../../context/TaxContext";
 
 function Form() {
-  const {
-    setCreditAmount,
-    setInstallmentCount,
-    setPaymentType,
-    setInterest,
-    setBsmv,
-    setKkdf,
-  } = UseCalculate();
+  const { setCreditAmount, setInstallmentCount, setPaymentType, setInterest } =
+    UseCalculate();
+  const { setBsmv, setKkdf } = UseTax();
   // Submit butonuna tıklandığında Modal'ın açılmasını sağlıyor
   const [modalOpen, setModalOpen] = useState(false);
   // Formlar Formik ile oluşturuldu
@@ -54,7 +50,7 @@ function Form() {
   return (
     <div className="form-body">
       <div className="forms-container">
-      <h2> Ödeme Planını Görmek İçin Aşağıdaki Bilgileri Giriniz</h2>
+        <h2> Ödeme Planını Görmek İçin Aşağıdaki Bilgileri Giriniz</h2>
         {/* Formlar için Material UI kullanıldı */}
         <FormControl>
           <Box
@@ -183,6 +179,13 @@ function Form() {
           </Box>
         </FormControl>
       </div>
+      <p className="info">
+        **Ödeme planının maksimum süresi 2 yıldır. Bu yüzden ödeme periyodu
+        seçildikten sonra taksit sayısı toplamda 2 yıllık süreyi geçmeyecek
+        şekilde girilmelidir.
+      </p>
+      <p className="info">**Minimum kredi çekme limiti 1000TL'dir</p>
+      <p className="info">**Maksimum Kredi Limiti 100.000TL'dir. </p>
       <AylikFaizHesabi />
     </div>
   );

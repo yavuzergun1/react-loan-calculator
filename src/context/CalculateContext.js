@@ -10,7 +10,7 @@ export const DataProvider = ({ children }) => {
   const [bsmv, setBsmv] = useState();
   const [kkdf, setKkdf] = useState();
   const [paymentPlan, setPaymentPlan] = useState([]);
-console.log("plan",paymentPlan);
+  console.log("plan", paymentPlan);
   const values = {
     creditAmount,
     setCreditAmount,

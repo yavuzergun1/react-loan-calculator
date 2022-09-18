@@ -40,9 +40,14 @@
 button {
   width: 150px !important;
   margin-left: 20px !important;
+  margin-bottom: 55px !important;
 }
 h2 {
   color: #007aff !important;
+}
+.info {
+  text-align: left;
+  padding-left: 20px;
 }
 
 @media (max-width: 860px) {

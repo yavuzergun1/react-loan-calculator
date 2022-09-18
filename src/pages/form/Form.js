@@ -54,6 +54,7 @@ function Form() {
   return (
     <div className="form-body">
       <div className="forms-container">
+      <h2> Ödeme Planını Görmek İçin Aşağıdaki Bilgileri Giriniz</h2>
         {/* Formlar için Material UI kullanıldı */}
         <FormControl>
           <Box
@@ -173,9 +174,11 @@ function Form() {
               </div>
               {/* onSubmit çalıştığında Panel componentine modalOpen değerini gönderir */}
               <Panel modalOpen={modalOpen} setModalOpen={setModalOpen} />
-              <Button type="onSubmit" variant="contained">
-                Hesapla
-              </Button>
+              <div className="button-container">
+                <Button type="onSubmit" variant="contained">
+                  Hesapla
+                </Button>
+              </div>
             </Box>
           </Box>
         </FormControl>

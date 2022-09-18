@@ -9,21 +9,23 @@ export const DataProvider = ({ children }) => {
   const [interest, setInterest] = useState();
   const [bsmv, setBsmv] = useState();
   const [kkdf, setKkdf] = useState();
-
-
+  const [paymentPlan, setPaymentPlan] = useState([]);
+console.log("plan",paymentPlan);
   const values = {
-      creditAmount,
-      setCreditAmount,
-      installmentCount,
-      setInstallmentCount,
-      paymentType,
-      setPaymentType,
-      interest,
-      setInterest,
-      bsmv,
-      setBsmv,
-      kkdf,
-      setKkdf,
+    creditAmount,
+    setCreditAmount,
+    installmentCount,
+    setInstallmentCount,
+    paymentType,
+    setPaymentType,
+    interest,
+    setInterest,
+    bsmv,
+    setBsmv,
+    kkdf,
+    setKkdf,
+    paymentPlan,
+    setPaymentPlan,
   };
   return <DataContext.Provider value={values}>{children}</DataContext.Provider>;
 };

@@ -1,11 +1,70 @@
-.forms-container{
-    width: 100%;
+.forms-container {
+  width: 100%;
+  padding-top: 50px;
 }
-.input-container{
-    width: 90%;
-    display: flex ;
-    justify-content: space-between;
+.input-container {
+  padding: 0px 16px !important;
+  margin: 0px !important;
+  width: 100% !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
-button{
-    width: 15% !important;
+.MuiFormGroup-root {
+  padding: 0px 20px !important;
+}
+.MuiFormControl-root {
+  width: 100%;
+}
+.MuiFormLabel-root {
+  display: flex;
+  padding-left: 20px !important;
+  margin-bottom: 0px !important;
+}
+.MuiTextField-root {
+  width: 250px;
+  margin-left: 20px !important;
+  margin-bottom: 15px !important;
+}
+.MuiBox-root {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  margin: 0px !important;
+}
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+}
+button {
+  width: 150px !important;
+  margin-left: 20px !important;
+}
+h2 {
+  color: #007aff !important;
+}
+
+@media (max-width: 860px) {
+  .input-container {
+    justify-content: center !important;
+  }
+  .MuiFormGroup-root {
+    justify-content: center;
+  }
+  .MuiFormLabel-root {
+    justify-content: center;
+  }
+  .button-container {
+    justify-content: center;
+  }
+  button {
+    margin-left: 0px !important;
+  }
+  @media (max-width: 590px) {
+    h2 {
+      font-size: 1rem;
+      padding: 15px;
+    }
+  }
 }

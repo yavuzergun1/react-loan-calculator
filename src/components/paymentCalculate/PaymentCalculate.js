@@ -68,11 +68,7 @@ function PaymentCalculate() {
     setPaymentPlan(payments);
   }, [creditAmount, installmentCount, paymentType, interest, bsmv, kkdf]);
 
-  return (
-    <div>
-      {payments[0]} {payments[1]}
-    </div>
-  );
+  return <div></div>;
 }
 
 export default PaymentCalculate;

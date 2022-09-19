@@ -12,9 +12,9 @@ import validationSchema from "./Validations";
 import "./form.scss";
 import Panel from "../../components/modal/Modal";
 import { useState } from "react";
-import AylikFaizHesabi from "../../components/paymentCount/PaymentCalculate";
 import { UseCalculate } from "../../context/CalculateContext";
 import { UseTax } from "../../context/TaxContext";
+import PaymentCalculate from "../../components/paymentCalculate/PaymentCalculate";
 
 function Form() {
   const { setCreditAmount, setInstallmentCount, setPaymentType, setInterest } =
@@ -186,7 +186,7 @@ function Form() {
       </p>
       <p className="info">**Minimum kredi çekme limiti 1000TL'dir</p>
       <p className="info">**Maksimum Kredi Limiti 100.000TL'dir. </p>
-      <AylikFaizHesabi />
+      <PaymentCalculate />
     </div>
   );
 }

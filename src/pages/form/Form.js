@@ -123,10 +123,10 @@ function Form() {
                   InputProps={{
                     inputProps:
                       values.odemeTipi == "aylik"
-                        ? { max: 24 }
+                        ? { max: 12 }
                         : values.odemeTipi == "yillik"
-                        ? { max: 2 }
-                        : { max: 104 },
+                        ? { max: 1 }
+                        : { max: 52 },
                   }}
                   error={
                     touched.taksitSayisi && errors.taksitSayisi ? true : false
@@ -180,7 +180,7 @@ function Form() {
         </FormControl>
       </div>
       <p className="info">
-        **Ödeme planının maksimum süresi 2 yıldır. Bu yüzden ödeme periyodu
+        **Ödeme planının maksimum süresi 1 yıldır. Bu yüzden ödeme periyodu
         seçildikten sonra taksit sayısı toplamda 2 yıllık süreyi geçmeyecek
         şekilde girilmelidir.
       </p>

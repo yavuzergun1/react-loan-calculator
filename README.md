@@ -5,13 +5,13 @@ ROUTER :
 React Router 6
 
 FORM :
-Formik 
+Formik,
 Yup (form validations)
 
 STYLING :
-Swiper.js
-Material UI
-AntDesign
+Swiper.js,
+Material UI,
+AntDesign,
 Scss
 
 

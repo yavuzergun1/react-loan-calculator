@@ -1,14 +1,14 @@
-CONTEXT API
+CONTEXT API :
 TaxContext, CalculateContext
 
-ROUTER
+ROUTER :
 React Router 6
 
-FORM
+FORM :
 Formik 
 Yup (form validations)
 
-STYLING
+STYLING :
 Swiper.js
 Material UI
 AntDesign
